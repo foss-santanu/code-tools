@@ -1,0 +1,52 @@
+% -*- Mode: LaTeX -*-
+
+% lisp-documentation.tex --
+% Environment definition for use in connection with the 'user manual'
+% facility of Common Lisp
+%
+% Author: Marco Antoniotti
+% Address: Robotics Laboratory
+%          Courant Institute of Mathematical Science
+%          New York University
+%          New York, NY, 10012
+%
+% Copyright (c) 1992. All rights reserved.
+%
+% Version: 0.9 beta
+
+%==============================================================================
+% General License Agreement and Lack of Warranty
+%
+% See companion file user-manual.lisp
+
+
+%==============================================================================
+% History:
+% 01.05.93: created.
+
+%==============================================================================
+% Global definitions
+
+\newlength{\formnamelen}	% length of a name of a form
+\newlength{\pboxargslen}	% length of parbox for arguments
+\newlength{\typelen}		% length of the type label for the form
+
+\newcommand{\namestyle}{\sf}	% style for the name (still unused)
+\newcommand{\argsstyle}{\em}	% style for the arguments (still unused)
+
+
+%------------------------------------------------------------------------------
+% lisp:documentation environment
+
+\newenvironment{lisp:documentation}[3]{\paragraph{{\sf #1}}
+\settowidth{\formnamelen}{\sf #1}
+\settowidth{\typelen}{\em #2\/}
+\setlength{\pboxargslen}{\linewidth}
+\addtolength{\pboxargslen}{-1\formnamelen}
+\addtolength{\pboxargslen}{-1.5\typelen}
+\parbox[t]{\pboxargslen}{\em #3\/} \hfill[{\em #2\/}]
+\begin{quote}}{\end{quote}}
+
+% lisp:documentation
+
+% end of file -- lisp-documentation.tex --
